@@ -1,0 +1,58 @@
+﻿@model Review
+
+<partial name="_BreadCrumbs" model=@(new [] {
+                                            ("/", "Home"),
+                                            ("/movie", "Movies"),
+                                            ($"/movie/details/{Model.MovieId}", $"{Model.MovieId}"),
+                                            ("", "CreateReview") })>
+
+<h3 class="mt-4 mb-4">Create Review</h3>
+
+<form asp-action="CreateReview">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <!-- we hide the Model MovieId as its not user editable but need to be in the form
+    to ensure the Review passed to the controller is complete -->
+
+    <input type="hidden" asp-for="MovieId" class="form-control" />
+
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <textarea rows="1" asp-for="Name" class="form-control"></textarea>
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <!--
+    <div class="form-group">
+        <label asp-for="CreatedOn" class="control-label"></label>
+        <input type="date" value="CreatedOn" />
+        <span asp-validation-for="CreatedOn" class="text-danger"></span>
+    </div> -->
+
+    <div class="form-group">
+        <label asp-for="Comment" class="control-label"></label>
+        <textarea rows="5" asp-for="Comment" class="form-control"></textarea>
+        <span asp-validation-for="Comment" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Rating" class="control-label"></label>
+        <textarea rows="1" asp-for="Rating" class="form-control"></textarea>
+        <span asp-validation-for="Rating" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-secondary" />
+        <a class="btn btn-secondary" asp-action="Details" asp-route-id=@Model.MovieId>Cancel</a>
+    </div>
+
+
+
+
+
+
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

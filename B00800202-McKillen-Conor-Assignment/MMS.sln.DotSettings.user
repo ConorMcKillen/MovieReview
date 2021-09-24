@@ -1,0 +1,6 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e8741731_002D1767_002D4a4a_002D8f56_002D65d6e9aad633/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Movie_AddMovieWhenUnique_ShouldSetAllProperties" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::4A9601BA-1D08-43B6-8B91-881DD5E28782::net5.0::MMS.Test.TestMovieService.Movie_AddMovieWhenUnique_ShouldSetAllProperties&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

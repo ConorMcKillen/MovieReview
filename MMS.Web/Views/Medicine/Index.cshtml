@@ -1,0 +1,40 @@
+﻿@model MedicineSearchViewModel
+
+<partial name="_Breadcrumbs" model=@(new [] { ("/", "Home"), ("/medicine", "Medicines"), ("","Index") })>
+    <h3>Medicine Requests</h3>
+
+    <div class="my-4 d-flex justify-content-between align-items-center">
+        <a asp-action="Create" class="btn btn-primary btn-sm mr-2">Create Medicine Request</a>
+        <partial name="_Search" /> <!-- add inline form to search ticket issues -->
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Patient</th>
+                <th>Created</th>
+                <th>Medicine Requests</th>
+                <th>Active</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var m in Model.Medicines)
+            {
+                <tr>
+                    <td>@m.Id</td>
+                    <td>@m.Patient.Name</td>
+                    <td>@m.CreatedOn.ToShortDateString()</td>
+                    <td>@m.MedicineName.Substring(0, m.MedicineName.Length < 100 ? m.MedicineName.Length : 20) ...</td>
+                    <td>
+                        <i asp-condition="@m.Active" class="bi bi-toggle-on"></i>
+                        <i asp-condition="@(!m.Active)" class="bi bi-toggle-off"></i>
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@m.Id"><i class="bi bi-lightbulb"></i> Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

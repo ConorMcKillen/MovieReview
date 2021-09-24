@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.5" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\MMS.Data\MMS.Data.csproj" />
+		<ProjectReference Include="..\MMS.Test\MMS.Test.csproj" />
+		<ProjectReference Include="..\MMS.Web\MMS.Web.csproj" />
+	</ItemGroup>
+	
+</Project>

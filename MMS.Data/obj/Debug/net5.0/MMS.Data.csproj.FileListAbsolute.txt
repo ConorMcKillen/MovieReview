@@ -1,0 +1,11 @@
+C:\Users\44778\Documents\B00800202-McKillen-Conor-Assignment\MMS.Data\bin\Debug\net5.0\MMS.Data.deps.json
+C:\Users\44778\Documents\B00800202-McKillen-Conor-Assignment\MMS.Data\bin\Debug\net5.0\MMS.Data.dll
+C:\Users\44778\Documents\B00800202-McKillen-Conor-Assignment\MMS.Data\bin\Debug\net5.0\ref\MMS.Data.dll
+C:\Users\44778\Documents\B00800202-McKillen-Conor-Assignment\MMS.Data\bin\Debug\net5.0\MMS.Data.pdb
+C:\Users\44778\Documents\B00800202-McKillen-Conor-Assignment\MMS.Data\obj\Debug\net5.0\MMS.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\44778\Documents\B00800202-McKillen-Conor-Assignment\MMS.Data\obj\Debug\net5.0\MMS.Data.AssemblyInfoInputs.cache
+C:\Users\44778\Documents\B00800202-McKillen-Conor-Assignment\MMS.Data\obj\Debug\net5.0\MMS.Data.AssemblyInfo.cs
+C:\Users\44778\Documents\B00800202-McKillen-Conor-Assignment\MMS.Data\obj\Debug\net5.0\MMS.Data.csproj.CoreCompileInputs.cache
+C:\Users\44778\Documents\B00800202-McKillen-Conor-Assignment\MMS.Data\obj\Debug\net5.0\MMS.Data.dll
+C:\Users\44778\Documents\B00800202-McKillen-Conor-Assignment\MMS.Data\obj\Debug\net5.0\ref\MMS.Data.dll
+C:\Users\44778\Documents\B00800202-McKillen-Conor-Assignment\MMS.Data\obj\Debug\net5.0\MMS.Data.pdb

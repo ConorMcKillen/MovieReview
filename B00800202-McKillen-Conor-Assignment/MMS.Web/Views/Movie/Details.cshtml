@@ -1,0 +1,49 @@
+﻿@model Movie
+
+
+<partial nane="_Breadcrumbs" model=@(new [] { ("/", "Home"), ("/movie", "Movies"), ("", "Details")})>
+
+    <h3 class="mt-4 mb-4">Movie Details</h3>
+
+    <div class="card shadow rounded p-3">
+        <div class="row pl-3">
+            <div class="col-8 pt-3">
+                <dl class="row">
+                    <dt class="col-5">Title</dt>
+                    <dd class="col-7">@Model.Title</dd>
+
+                    <dt class="col-5">Director</dt>
+                    <dd class="col-7">@Model.Director</dd>
+
+                    <dt class="col-5">Genre</dt>
+                    <dd class="col-7">@Model.Genre</dd>
+
+                    <dt class="col-5">Year</dt>
+                    <dd class="col-7">@Model.Year</dd>
+
+                    <dt class="col-5">Duration</dt>
+                    <dd class="col-7">@Model.Duration minutes</dd>
+
+                    <dt class="col-5">Budget</dt>
+                    <dd class="col-7">$@Model.Budget</dd>
+
+                    <dt class="col-5">Cast</dt>
+                    <dd class="col-7">@Model.Cast</dd>
+
+                    <dt class="col-5">Plot</dt>
+                    <dd class="col-7">@Model.Plot</dd>
+
+                    <dt class="col-5">Rating</dt>
+                    <dd class="col-7">@Model.Rating</dd>
+                </dl>
+            </div>
+            <div class="col-4">
+                <img src="@Model.PosterUrl" class="img-fluid">
+            </div>
+
+        </div>
+    </div>
+    <div>
+        <partial name="_Reviews">
+
+    </div>

@@ -1,0 +1,72 @@
+﻿@model IList<Movie>
+
+<style type="text/css">
+    .moviestitle {
+        font-weight: bold;
+    }
+</style>
+
+<partial name="_BreadCrumbs" model=@( new [] { ("/", "Home"), ("/movie", "Movies"), ("", "Index") } )>
+
+<a img src="https://fontmeme.com/permalink/210422/6a5d2e749bff56c52846a2401f8c3a1e.png" alt="polentical-neon-font" border="0"></a>
+
+<div class="moviestitle">
+    <h2>
+    <a class="mb-3"><img src="https://fontmeme.com/permalink/210422/6a5d2e749bff56c52846a2401f8c3a1e.png" alt="polentical-neon-font" border="0" width="150" height="29"></a>
+    </h2>
+</div>
+
+<p>
+
+    <a class="btn btn-lg btn-secondary my-5" asp-controller="Movie" asp-action="Create">Add Movie</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Director</th>
+            <th>Year</th>
+            <th>Duration</th>
+            <th>Budget</th>
+            <th>Poster</th>
+            <th>Genre</th>
+            <th>Cast</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var m in Model)
+        {
+
+            <tr>
+                <td>@m.Id</td>
+                <td>@m.Title</td>
+                <td>@m.Director</td>
+                <td>@m.Year</td>
+                <td>@m.Duration minutes</td>
+                <td>$@m.Budget</td>
+                <td><img src="@m.PosterUrl" class="img-fluid" width="550" height="877"></td>
+                <td>@m.Genre</td>
+                <td>@m.Cast</td>
+
+
+                <td>
+                    <!--Link to details view-->
+                    <a asp-controller="Movie" asp-action="Details" asp-route-id=@m.Id>Details</a>
+                    <p></p>
+                    <!-- Link to edit view  -->
+                    <a asp-controller="Movie" asp-action="Edit" asp-route-id=@m.Id>Edit</a>
+                    <p></p>
+                    <!-- Link to create a review -->
+                    <a asp-controller="Movie" asp-action="CreateReview" asp-route-id=@m.Id>Add Review</a>
+                    <p></p>
+                    <!-- Linke to Delete view -->
+                    <a asp-controller="Movie" asp-action="Delete" asp-route-id=@m.Id>Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

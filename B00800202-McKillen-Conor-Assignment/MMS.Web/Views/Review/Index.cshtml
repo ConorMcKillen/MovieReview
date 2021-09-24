@@ -1,0 +1,47 @@
+﻿@model IList<Review>
+
+
+<partial name="_BreadCrumbs" model=@( new [] { ("/", "Home"), ("/review", "Reviews"), ("", "Index") } )>
+
+    <h3>Review List</h3>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Movie</th>
+                <th>Name</th>
+                <th>Created On</th>
+                <th>Comment</th>
+                <th>Rating</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+
+
+        <tbody>
+
+
+            @foreach (var r in Model)
+            {
+                <tr>
+                    <td>@r.Id</td>
+                    <td>@r.Movie.Title</td>
+                    <td>@r.Name</td>
+                    <td>@r.CreatedOn.ToShortDateString()</td>
+                    <td>@r.Comment</td>
+                    <td>@r.Rating</td>
+
+                    <td class="btn btn-danger btn-sm rounded">
+                        <a asp-controller="Review" asp-action="Delete" asp-route-id=@r.Id>Delete</a>
+                    </td>
+
+                </tr>
+
+            }
+
+
+        </tbody>
+    </table>
+
+    

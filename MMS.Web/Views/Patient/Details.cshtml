@@ -1,0 +1,56 @@
+﻿@model Patient
+
+<partial name="_Breadcrumbs" model=@(new [] { (" /", "Home" ), (" /patient", "Patients" ), ("","Details") })>
+
+    <h3 class="mt-4 mb-4">Patient Details</h3>
+
+    <div class="card shadow rounded p-3">
+        <div class="row pl-3">
+            <!-- Details -->
+            <div class="col-8 pt-3">
+                <dl class="row">
+                    <dt class="col-5">Name</dt>
+                    <dd class="col-7">@Model.Name</dd>
+
+                    <dt class="col-5">Age</dt>
+                    <dd class="col-7">@Model.Age</dd>
+
+                    <dt class="col-5">Email</dt>
+                    <dd class="col-7">@Model.Email</dd>
+                </dl>
+            </div>
+        </div>
+
+        <!-- action options -->
+        <div class="row pl-3">
+
+            <!-- add navigation link to CreateTicket action, passing correct route parameter -->
+            <a asp-action="CreateMedicineRequest" asp-route-id="@Model.Id" class="btn btn-sm btn-info mr-2">
+                <i class="bi bi-plus-square-dotted mr-1"></i>Add Medicine Request
+            </a>
+
+            <!-- add navigation link to Details action, passing the correct route id parameter -->
+            <!-- note use of ClaimsPrincipal extension method HasOneOfRoles (found in Extensions) -->
+            <a asp-condition=@User.HasOneOfRoles("admin,manager") asp-controller="Patient" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-sm btn-light mr-2">
+                <i class="bi bi-pencil-square mr-1"></i>Edit Patient
+            </a>
+
+            <!-- add navigation link to redirect to Index action -->
+            <a asp-controller="Patient" asp-action="Index" class="btn btn-sm btn-light mr-4">
+                <i class="bi bi-list mr-1"></i>Patient List
+            </a>
+
+            <!-- add navigation link to Delete action, passing the correct route id parameter -->
+            <button asp-condition=@(User.IsInRole("admin")) data-toggle="modal" data-target="#deleteModal" class="btn btn-sm  btn-link ml-4">
+                <i class="bi bi-trash mr-1"></i>Delete Patient
+            </button>
+
+        </div>
+
+        <!-- Tickets -->
+        <div class="row p-3">
+            <partial name="_Medicines" />
+        </div>
+    </div>
+
+    <partial name="_DeleteModal" />

@@ -1,0 +1,35 @@
+﻿@model MedicineCreateViewModel
+
+<partial name="_Breadcrumbs" model=@(new [] {
+    ("/", "Home"),
+    ("/patient", "Patients"),
+    ($"/patient/details/{Model.PatientId}", $"{Model.PatientId}"),
+    ("","Create Medicine Request") })>
+
+    <h3 class="mt-4 mb-4">Create Medicine Request</h3>
+
+    <form asp-action="CreateTicket">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <!-- we hide the Model PatientId as its not user editable but needs to be in the form  -->
+        <!-- to ensure the Request passed to the controller is complete.                        -->
+        <input type="hidden" asp-for="PatientId" class="form-control" />
+
+        <!-- CreatedOn and Active are not required in the form and are set in contoller before -->
+        <!-- passing to service. Issue should be a TextArea input  with 5 rows                 -->
+        <div class="form-group">
+            <label asp-for="Request" class="control-label"></label>
+            <textarea rows="5" asp-for="Request" class="form-control"></textarea>
+            <span asp-validation-for="Request" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
+            <a class="btn btn-secondary" asp-action="Details" asp-route-id=@Model.PatientId>Cancel</a>
+        </div>
+
+    </form>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

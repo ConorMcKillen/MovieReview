@@ -1,0 +1,42 @@
+﻿@model IList<Patient>
+
+<partial name="_Breadcrumbs" model=@(new [] { (" /", "Home" ), (" /student", "Students" ), ("","Index") })>
+
+    <h3 class="mb-3">Patients</h3>
+            
+<a asp-condition=@User.HasOneOfRoles("admin,manager") class="btn btn-sm btn-primary my-3" asp-controller="Patient" asp-action="Create">Create</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach(var p in Model) {
+        <tr>
+            <td>@p.Id</td>
+            <td>@p.Name</td>
+            <td>@p.Age</td>
+            <td>
+                <!-- Add View link -->
+                <a asp-controller="Patient" asp-action="Details" asp-route-id=@p.Id><i class="bi bi-book"></i></a>
+                <!-- Add edit link  -->
+                <a asp-condition=@User.HasOneOfRoles("admin,manager") asp-controller="Student" asp-action="Edit" asp-route-id=@p.Id><i class="bi bi-pen"></i></a>
+                <!-- Add delete link -->
+                <a asp-condition=@User.IsInRole("admin") asp-controller="Student" asp-action="Delete" asp-route-id=@p.Id><i class="bi bi-trash"></i></a> *<a asp-condition=@User.IsInRole("admin") asp-controller="Patient" asp-action="Delete" asp-route-id=@p.Id><i class="bi bi-trash"></i></a>
+
+                <!-- custom anchor tag that links to a custom delete modal for the current student  -->
+                <!-- Note how we create a unique modal id using 's.Id' and use this as the anchor tag href -->
+                <a asp-condition=@User.IsInRole("admin") data-toggle="modal" href="#deleteModal-@p.Id"><i class="bi bi-trash"></i></a>
+                <!-- custom modal defined for each student - note we pass the current student 's' as a model to the modal -->
+                <partial name="_DeleteModal" model="p" />
+            </td>
+        </tr>
+}
+
+</tbody>
+</table>
